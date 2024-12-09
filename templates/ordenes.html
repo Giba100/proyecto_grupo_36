@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órdenes</title>
+</head>
+<body>
+    <h2>Órdenes</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Descripción</th>
+                <th>Marca</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order['id_orden'] }}</td>
+                <td>{{ order['id_cliente'] }}</td>
+                <td>{{ order['descripcion'] }}</td>
+                <td>{{ order['marca'] }}</td>
+                <td>{{ order['estado'] }}</td>
+                <td>
+                    <a href="{{ url_for('asignar_tecnico', id_orden=order['id_orden']) }}">Asignar Técnico</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

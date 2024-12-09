@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos</title>
+</head>
+<body>
+    <h2>Pagos</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Pago</th>
+                <th>ID Orden</th>
+                <th>Monto</th>
+                <th>Fecha de Pago</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payment in payments %}
+            <tr>
+                <td>{{ payment['id_pago'] }}</td>
+                <td>{{ payment['id_orden'] }}</td>
+                <td>{{ payment['monto'] }}</td>
+                <td>{{ payment['f_pago'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

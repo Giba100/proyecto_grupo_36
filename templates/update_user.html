@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Actualizar Usuario</h1>
+<a href="{{ url_for('usuarios') }}" class="btn btn-secondary mb-3">Volver</a>
+<form action="{{ url_for('actualizar_usuario', id_usuario=usuario.id_usuario) }}" method="POST">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" value="{{ usuario.nombre }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ usuario.email }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" name="telefono" value="{{ usuario.telefono }}">
+    </div>
+    <div class="mb-3">
+        <label for="id_rol" class="form-label">Rol</label>
+        <select class="form-control" id="id_rol" name="id_rol" required>
+            {% for rol in roles %}
+            <option value="{{ rol.id_rol }}" {% if rol.id_rol == usuario.id_rol %}selected{% endif %}>
+                {{ rol.nombre }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}

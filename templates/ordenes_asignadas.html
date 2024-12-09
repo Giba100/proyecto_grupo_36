@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órdenes Asignadas</title>
+</head>
+<body>
+    <h1>Órdenes Asignadas</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Marca</th>
+                <th>Estado</th>
+                <th>Monto</th>
+                <th>Fecha de Entrega</th>
+                <th>Actualizar Estado</th>
+                <th>Actualizar Fecha de Entrega</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.descripcion }}</td>
+                    <td>{{ order.marca }}</td>
+                    <td>{{ order.estado }}</td>
+                    <td>BS.{{ order.monto }}</td>
+                    <td>{{ order.f_entrega if order.f_entrega else 'Pendiente' }}</td>
+                    <td>
+                        <form action="{{ url_for('update_order_status', id_orden=order.id_orden) }}" method="POST">
+                            <select name="estado" required>
+                                <option value="Pendiente" {% if order.estado == 'Pendiente' %}selected{% endif %}>Pendiente</option>
+                                <option value="En Proceso" {% if order.estado == 'En Proceso' %}selected{% endif %}>En Proceso</option>
+                                <option value="Completada" {% if order.estado == 'Completada' %}selected{% endif %}>Completada</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{ url_for('actualizar_fecha_entrega_tecnico', id_orden=order.id_orden) }}" method="GET">
+                            <a href="{{ url_for('actualizar_fecha_entrega_tecnico', id_orden=order.id_orden) }}" class="btn btn-warning">Actualizar Fecha</a>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('tecnico_menu') }}">Volver al Menú</a>
+</body>
+</html>

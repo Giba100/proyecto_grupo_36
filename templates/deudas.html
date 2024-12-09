@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deudas - Servicio Técnico</title>
+</head>
+<body>
+    <h1>Deudas</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Orden</th>
+                <th>Descripción</th>
+                <th>Marca</th>
+                <th>Monto Total</th>
+                <th>Nombre del Técnico</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for deuda in deudas %}
+            <tr>
+                <td>{{ deuda.id_orden }}</td>
+                <td>{{ deuda.descripcion }}</td>
+                <td>{{ deuda.marca }}</td>
+                <td>${{ deuda.monto }}</td>
+                <td>{{ deuda.tecnico_nombre }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

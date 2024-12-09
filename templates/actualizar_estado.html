@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Estado</title>
+</head>
+<body>
+    <h1>Actualizar Estado de la Orden</h1>
+    <form method="POST">
+        <p>ID Orden: {{ order.id_orden }}</p>
+        <p>Descripción: {{ order.descripcion }}</p>
+        <p>Marca: {{ order.marca }}</p>
+        <label for="estado">Nuevo Estado:</label>
+        <select name="estado" id="estado">
+            <option value="Pendiente" {% if order.estado == "Pendiente" %}selected{% endif %}>Pendiente</option>
+            <option value="En Proceso" {% if order.estado == "En Proceso" %}selected{% endif %}>En Proceso</option>
+            <option value="Completada" {% if order.estado == "Completada" %}selected{% endif %}>Completada</option>
+        </select>
+        <button type="submit">Actualizar</button>
+    </form>
+    <a href="{{ url_for('ordenes_asignadas') }}">Volver</a>
+</body>
+</html>

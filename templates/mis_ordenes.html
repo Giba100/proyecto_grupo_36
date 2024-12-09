@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Órdenes</title>
+</head>
+<body>
+    <h1>Mis Órdenes</h1>
+    {% if orders %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Marca</th>
+                <th>Estado</th>
+                <th>Fecha de Ingreso</th>
+                <th>Fecha de Entrega</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.descripcion }}</td>
+                    <td>{{ order.marca }}</td>
+                    <td>{{ order.estado }}</td>
+                    <td>{{ order.f_ingreso }}</td>
+                    <td>{{ order.f_entrega }}</td>
+                    <td>BS.{{ order.monto }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No tienes órdenes registradas.</p>
+    {% endif %}
+    <a href="{{ url_for('cliente_menu') }}">Volver al Menú</a>
+</body>
+</html>

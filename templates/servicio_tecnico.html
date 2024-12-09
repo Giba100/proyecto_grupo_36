@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Técnico</title>
+</head>
+<body>
+    <h1>Servicio Técnico</h1>
+    <form method="POST">
+        <label for="descripcion">Descripción de la Falla:</label>
+        <textarea name="descripcion" id="descripcion" required></textarea><br>
+        <label for="marca">Marca del Dispositivo:</label>
+        <input type="text" name="marca" id="marca" required><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <a href="{{ url_for('cliente_menu') }}">Volver al Menú</a>
+</body>
+</html>

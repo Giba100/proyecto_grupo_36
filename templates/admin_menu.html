@@ -2,11 +2,17 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Menú Administrador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Admin</title>
 </head>
 <body>
-    <h2>Bienvenido admin</h2>
-    <h1>Bienvenido, {{ nombre }}</h1>
-<a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+    <h2>Bienvenido, {{ current_user.nombre }} (Administrador)</h2>
+    <ul>
+        <li><a href="{{ url_for('add_user') }}">Agregar Usuario</a></li>
+        <li><a href="{{ url_for('usuarios') }}">Usuarios</a></li>
+        <li><a href="{{ url_for('ordenes') }}">Órdenes</a></li>
+        <li><a href="{{ url_for('pagos') }}">Pagos</a></li>
+        <li><a href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+    </ul>
 </body>
 </html>

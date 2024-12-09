@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Estado de Orden</title>
+</head>
+<body>
+    <h1>Actualizar Estado de la Orden</h1>
+    <form method="post">
+        <p>Descripción: {{ order.descripcion }}</p>
+        <p>Marca: {{ order.marca }}</p>
+        <p>Estado Actual: {{ order.estado }}</p>
+        <label for="estado">Nuevo Estado:</label>
+        <select name="estado" id="estado">
+            <option value="Pendiente" {% if order.estado == 'Pendiente' %}selected{% endif %}>Pendiente</option>
+            <option value="En Proceso" {% if order.estado == 'En Proceso' %}selected{% endif %}>En Proceso</option>
+            <option value="Completada" {% if order.estado == 'Completada' %}selected{% endif %}>Completada</option>
+        </select>
+        <button type="submit">Actualizar</button>
+    </form>
+</body>
+</html>

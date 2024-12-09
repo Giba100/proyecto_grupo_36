@@ -1,0 +1,22 @@
+<!-- actualizar_fecha_entrega_tecnico.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Fecha de Entrega</title>
+</head>
+<body>
+    <h1>Actualizar Fecha de Entrega</h1>
+
+    <form action="{{ url_for('actualizar_fecha_entrega_tecnico', id_orden=id_orden) }}" method="POST">
+        <label for="f_entrega">Fecha de Entrega:</label>
+        <input type="date" name="f_entrega" required>
+        <br><br>
+        <button type="submit">Actualizar</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('ordenes_asignadas') }}">Volver a Órdenes Asignadas</a>
+</body>
+</html>

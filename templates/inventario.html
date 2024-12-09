@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+</head>
+<body>
+    <h1>Inventario</h1>
+    {% if items %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Reducir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.id_item }}</td>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>
+                        <form method="POST" action="{{ url_for('reducir_inventario', id_item=item.id_item) }}">
+                            <button type="submit" {% if item.cantidad <= 0 %}disabled{% endif %}>-</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay elementos en el inventario.</p>
+    {% endif %}
+    <a href="{{ url_for('tecnico_menu') }}">Volver al Menú</a>
+</body>
+</html>

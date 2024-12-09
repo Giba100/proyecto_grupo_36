@@ -7,6 +7,10 @@
 <body>
     <h2>Bienvenido Técnico</h2>
     <h1>Bienvenido, {{ nombre }}</h1>
-<a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+    <ul>
+        <li><a href="{{ url_for('ordenes_asignadas') }}">Órdenes Asignadas</a></li>
+        <li><a href="{{ url_for('inventario') }}">Inventario</a></li>
+    </ul>
+    <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
 </body>
 </html>

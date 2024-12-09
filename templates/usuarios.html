@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+</head>
+<body>
+    <h2>Usuarios</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user['nombre'] }}</td>
+                <td>{{ user['email'] }}</td>
+                <td>{{ user['id_rol'] == 1 and 'Administrador' or (user['id_rol'] == 2 and 'Técnico' or 'Cliente') }}</td>
+                <td>{{ user['telefono'] }}</td>
+                <td>
+                    <a href="{{ url_for('update_user', id=user['id_usuario']) }}">Actualizar</a> |
+                    <a href="{{ url_for('delete_user', id=user['id_usuario']) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
