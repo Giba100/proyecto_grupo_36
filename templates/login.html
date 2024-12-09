@@ -1,0 +1,16 @@
+<form method="post">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+    <label>Contraseña:</label>
+    <input type="password" name="contrasena" required>
+    <button type="submit">Iniciar Sesión</button>
+</form>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <ul>
+    {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endwith %}
