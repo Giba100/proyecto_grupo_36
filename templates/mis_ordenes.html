@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Órdenes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cliente.css') }}">
 </head>
 <body>
     <h1>Mis Órdenes</h1>
@@ -17,6 +18,7 @@
                 <th>Fecha de Ingreso</th>
                 <th>Fecha de Entrega</th>
                 <th>Monto</th>
+                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +30,13 @@
                     <td>{{ order.f_ingreso }}</td>
                     <td>{{ order.f_entrega }}</td>
                     <td>BS.{{ order.monto }}</td>
+                    <td>
+                        {% if order.estado == "Completada" %}
+                            <a href="{{ url_for('realizar_pago', id_orden=order.id_orden) }}" class="btn"><button>Pagar</button></a>
+                        {% else %}
+                            <span>No disponible</span>
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -35,6 +44,6 @@
     {% else %}
         <p>No tienes órdenes registradas.</p>
     {% endif %}
-    <a href="{{ url_for('cliente_menu') }}">Volver al Menú</a>
+    <a href="{{ url_for('cliente_menu') }}"><button>Volver al menu</button></a> 
 </body>
 </html>

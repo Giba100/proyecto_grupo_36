@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
 </head>
 <body>
-    <h2>Bienvenido, {{ current_user.nombre }} (Administrador)</h2>
-    <ul>
-        <li><a href="{{ url_for('add_user') }}">Agregar Usuario</a></li>
-        <li><a href="{{ url_for('usuarios') }}">Usuarios</a></li>
-        <li><a href="{{ url_for('ordenes') }}">Órdenes</a></li>
-        <li><a href="{{ url_for('pagos') }}">Pagos</a></li>
-        <li><a href="{{ url_for('logout') }}">Cerrar sesión</a></li>
-    </ul>
+    <header>
+        <h2>Bienvenido Administrador {{ current_user.nombre }} </h2>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('add_user') }}"><button>Agregar usuario</button></a></li>
+                <li><a href="{{ url_for('usuarios') }}"><button>Usuarios</button></a></li>
+                <li><a href="{{ url_for('ordenes') }}"><button>Ordenes </button></a></li>
+                <li><a href="{{ url_for('pagos') }}"><button>Pagos</button></a></li>
+                <li><a href="{{ url_for('logout') }}"><button>Cerrar Sesion</button></a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Aquí va el contenido de la página -->
 </body>
 </html>

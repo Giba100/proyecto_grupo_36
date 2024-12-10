@@ -1,31 +1,36 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+    <h2>Actualizar Usuario</h2>
+    <form method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ user['nombre'] }}" required><br><br>
 
-{% block content %}
-<h1>Actualizar Usuario</h1>
-<a href="{{ url_for('usuarios') }}" class="btn btn-secondary mb-3">Volver</a>
-<form action="{{ url_for('actualizar_usuario', id_usuario=usuario.id_usuario) }}" method="POST">
-    <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" value="{{ usuario.nombre }}" required>
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" name="email" value="{{ usuario.email }}" required>
-    </div>
-    <div class="mb-3">
-        <label for="telefono" class="form-label">Teléfono</label>
-        <input type="text" class="form-control" id="telefono" name="telefono" value="{{ usuario.telefono }}">
-    </div>
-    <div class="mb-3">
-        <label for="id_rol" class="form-label">Rol</label>
-        <select class="form-control" id="id_rol" name="id_rol" required>
-            {% for rol in roles %}
-            <option value="{{ rol.id_rol }}" {% if rol.id_rol == usuario.id_rol %}selected{% endif %}>
-                {{ rol.nombre }}
-            </option>
-            {% endfor %}
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Actualizar</button>
-</form>
-{% endblock %}
+        <label for="email">Correo:</label>
+        <input type="email" name="email" value="{{ user['email'] }}" required><br><br>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" name="contrasena" value="{{ user['contrasena'] }}" required><br><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" name="telefono" value="{{ user['telefono'] }}"><br><br>
+
+        <label for="id_rol">Rol:</label>
+        <select name="id_rol" required>
+            <option value="1" {% if user['id_rol'] == 1 %}selected{% endif %}>Administrador</option>
+            <option value="2" {% if user['id_rol'] == 2 %}selected{% endif %}>Técnico</option>
+            <option value="3" {% if user['id_rol'] == 3 %}selected{% endif %}>Cliente</option>
+        </select><br><br>
+
+        <button type="submit">Actualizar Usuario</button>
+    </form>
+
+    <p>{{ get_flashed_messages() }}</p>
+</body>
+</html>

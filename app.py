@@ -38,6 +38,10 @@ def load_user(user_id):
         return User(user['id_usuario'], user['nombre'], user['id_rol'])
     return None
 
+# Ruta raíz que redirige al login
+@app.route('/')
+def index():
+    return redirect(url_for('login'))
 # Ruta para la página de login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -100,7 +104,7 @@ def cliente_menu():
     return redirect(url_for('login'))
 
 # Ruta para agregar usuarios (solo admin)
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/add_user', methods=['GET', 'POST'])
 @login_required
 def add_user():
     if current_user.id_rol != 1:  # Solo el admin puede agregar usuarios
@@ -553,6 +557,60 @@ def actualizar_fecha_entrega_tecnico(id_orden):
     cursor.close()
     conn.close()
     return render_template('actualizar_fecha_entrega_tecnico.html', id_orden=id_orden)
+
+@app.route('/contacto')
+def contacto():
+    return render_template('contacto.html')
+
+from flask import render_template, request, redirect, url_for, flash
+from datetime import datetime
+import mysql.connector
+
+@app.route('/realizar_pago/<int:id_orden>')
+@login_required
+def realizar_pago(id_orden):
+    if current_user.id_rol != 3:  # Solo clientes
+        return redirect(url_for('login'))
+    return render_template('realizar_pago.html', id_orden=id_orden)
+
+@app.route('/procesar_pago/<int:id_orden>', methods=['POST'])
+@login_required
+def procesar_pago(id_orden):
+    if current_user.id_rol != 3:  # Solo clientes
+        return redirect(url_for('login'))
+
+    metodo_pago = request.form.get('metodo_pago')
+    monto_pagado = request.form.get('monto_pagado')
+    fecha_pago = request.form.get('fecha_pago')
+
+    if not metodo_pago or not monto_pagado or not fecha_pago:
+        flash("Todos los campos son obligatorios.", "error")
+        return redirect(url_for('realizar_pago', id_orden=id_orden))
+
+    try:
+        conn = mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='',
+            database='servitec1'
+        )
+        cursor = conn.cursor()
+
+        # Insertar el pago en la tabla pagos
+        cursor.execute(
+            "INSERT INTO pagos (id_orden, metodo_pago, monto_pagado, fecha_pago) VALUES (%s, %s, %s, %s)",
+            (id_orden, metodo_pago, monto_pagado, fecha_pago)
+        )
+        conn.commit()
+
+        flash("Pago registrado exitosamente.", "success")
+        return redirect(url_for('mis_ordenes'))
+    except mysql.connector.Error as err:
+        flash(f"Error al procesar el pago: {err}", "error")
+        return redirect(url_for('realizar_pago', id_orden=id_orden))
+    finally:
+        cursor.close()
+        conn.close()
 
 # Ruta para cerrar sesión
 @app.route('/logout')

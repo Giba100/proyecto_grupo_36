@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Pago</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cliente.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Realizar Pago</h1>
+        <form action="{{ url_for('procesar_pago', id_orden=id_orden) }}" method="POST">
+            <div class="form-group">
+                <label for="metodo_pago">Método de Pago:</label>
+                <select name="metodo_pago" id="metodo_pago" required>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                    <option value="Transferencia">Transferencia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="monto_pagado">Monto a Pagar (BS.):</label>
+                <input type="number" name="monto_pagado" id="monto_pagado" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_pago">Fecha de Pago:</label>
+                <input type="date" name="fecha_pago" id="fecha_pago" required>
+            </div>
+            <button type="submit" class="btn">Pagar</button>
+           
+        </form>
+        <a href="{{ url_for('mis_ordenes') }}" class="btn cancel"><button>Cancelar</button></a>
+    </div>
+    
+</body>
+</html>

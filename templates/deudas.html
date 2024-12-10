@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Deudas - Servicio Técnico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cliente.css') }}">
 </head>
 <body>
     <h1>Deudas</h1>
@@ -28,5 +29,6 @@
             {% endfor %}
         </tbody>
     </table>
+    <a href="{{ url_for('cliente_menu') }}">volver a menu</a>
 </body>
 </html>

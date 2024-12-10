@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Contacto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cliente.css') }}">
+</head>
+<body>
+    <main>
+        <!-- Información de contacto -->
+        <section>
+            <h2>Información de Contacto</h2>
+            <div class="contact-info">
+                <div>
+                    <img src="{{ url_for('static', filename='imagenes/ubi.jpg') }}" alt="Dirección">
+                    <h3>Dirección</h3>
+                    <p>Villa Esperanza, Ciudad de El Alto, Bolivia</p>
+                </div>
+                <div>
+                    <img src="{{ url_for('static', filename='imagenes/tele.jpg') }}" alt="Teléfono">
+                    <h3>Teléfono</h3>
+                    <p>(+591) 77745198</p>
+                </div>
+                <div>
+                    <img src="{{ url_for('static', filename='imagenes/email.jpg') }}" alt="Email">
+                    <h3>Email</h3>
+                    <p>Servitec_asociados@gmail.com</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Redes sociales -->
+        <section>
+            <h2>Síguenos en Redes Sociales</h2>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+                </a>
+                <a href="https://whatsapp.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                </a>
+                <a href="https://youtube.com" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+                </a>
+            </div>
+        </section>
+        <a href="{{ url_for('cliente_menu') }}"><button>Volver al menu</button></a> 
+    </main>
+</body>
+</html>

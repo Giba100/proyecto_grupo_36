@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
 </head>
 <body>
-    <h2>Usuarios</h2>
+    <main>
     <table border="1">
         <thead>
+            <h1>Usuarios</h1>
             <tr>
                 <th>Nombre</th>
                 <th>Email</th>
@@ -25,12 +27,18 @@
                 <td>{{ user['id_rol'] == 1 and 'Administrador' or (user['id_rol'] == 2 and 'Técnico' or 'Cliente') }}</td>
                 <td>{{ user['telefono'] }}</td>
                 <td>
-                    <a href="{{ url_for('update_user', id=user['id_usuario']) }}">Actualizar</a> |
-                    <a href="{{ url_for('delete_user', id=user['id_usuario']) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                    
+                    <a href="{{ url_for('update_user', id=user['id_usuario']) }}"><button>Actualizar </button></a> |
+                    <a href="{{ url_for('delete_user', id=user['id_usuario']) }}" onclick="return confirm('¿Estás seguro?')"><button>Eliminar </button></a>
                 </td>
             </tr>
             {% endfor %}
+            <a href="{{ url_for('admin_menu') }}"><button>Volver al menu</button></a> 
         </tbody>
+        
     </table>
+</main>
 </body>
 </html>
+
+

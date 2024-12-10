@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
 </head>
 <body>
-    <h2>Pagos</h2>
+    <h1>Pagos</h1>
     <table border="1">
         <thead>
             <tr>
@@ -27,5 +28,6 @@
             {% endfor %}
         </tbody>
     </table>
+    <a href="{{ url_for('admin_menu') }}"><button>Volver al menu</button></a>
 </body>
 </html>

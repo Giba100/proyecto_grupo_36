@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Órdenes Asignadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tecnico.css') }}">
 </head>
 <body>
     <h1>Órdenes Asignadas</h1>
+    <a href="{{ url_for('tecnico_menu') }}"><button>Volver al menu</button></a>
     <table border="1">
         <thead>
             <tr>
@@ -39,13 +41,14 @@
                     </td>
                     <td>
                         <form action="{{ url_for('actualizar_fecha_entrega_tecnico', id_orden=order.id_orden) }}" method="GET">
-                            <a href="{{ url_for('actualizar_fecha_entrega_tecnico', id_orden=order.id_orden) }}" class="btn btn-warning">Actualizar Fecha</a>
+                            <a href="{{ url_for('actualizar_fecha_entrega_tecnico', id_orden=order.id_orden) }}" class="btn btn-warning"><button>Actualizar Fecha</button></a>
                         </form>
+                        
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="{{ url_for('tecnico_menu') }}">Volver al Menú</a>
+    
 </body>
 </html>

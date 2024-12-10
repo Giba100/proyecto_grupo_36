@@ -1,0 +1,409 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/imagenes/admin2.jpg'); /* Fondo de imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    color: #2a76e7;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro y semi-transparente */
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Esto hace que los enlaces se alineen horizontalmente */
+    gap: 20px; /* Espaciado entre los enlaces */
+}
+
+nav ul li {
+    display: inline;
+}
+
+
+nav ul li a:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+h1, h2, h3 {
+    text-align: center;
+    color: #f5efef;
+}
+h1, h3 {
+    text-align: center;
+    color: #151212;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo base para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: linear-gradient(135deg, #2c3e50, #34495e);  /* Degradado oscuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+/* Estilo para las celdas */
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    color: #ecf0f1;  /* Color claro para el texto */
+    font-size: 16px;
+}
+
+/* Estilo para las cabeceras */
+th {
+    background: #16a085;  /* Color brillante para las cabeceras */
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Estilo para las filas */
+tr {
+    background: #34495e;
+    transition: background 0.3s ease;
+}
+
+/* Efecto de hover para las filas */
+tr:hover {
+    background: linear-gradient(135deg, #1abc9c, #16a085);  /* Degradado brillante */
+    transform: scale(1.02);  /* Efecto de ampliación */
+}
+
+/* Efecto para las celdas cuando la fila es seleccionada */
+tr:active {
+    background: #1abc9c;
+}
+
+/* Bordes de las celdas */
+td, th {
+    border: 1px solid #16a085;  /* Bordes de color brillante */
+    border-radius: 6px;
+}
+
+/* Efecto de focus en las celdas */
+th:focus, td:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(22, 160, 133, 0.8);  /* Brillo alrededor de las celdas */
+}
+
+/* Estilo para la tabla cuando no hay contenido */
+table:empty {
+    display: none;
+}
+
+/* Buttons */
+/* Estilo base para el botón */
+button {
+    background: linear-gradient(45deg, #ff6b81, #ffcc00);  /* Gradiente brillante */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: all 0.3s ease;  /* Transición suave para efectos */
+}
+
+/* Efecto cuando el botón está en hover */
+button:hover {
+    background: linear-gradient(45deg, #ffcc00, #ff6b81);  /* Inversión del gradiente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+    transform: translateY(-3px);  /* Eleva el botón cuando se pasa el mouse */
+}
+
+/* Efecto de focus para accesibilidad */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);  /* Brillo alrededor del botón */
+}
+
+/* Efecto cuando el botón está deshabilitado */
+button:disabled {
+    background: #d1d1d1;  /* Fondo gris cuando está deshabilitado */
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Form Styles */
+/* Estilo general para el formulario */
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Fondo degradado */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+/* Estilo de los campos de texto */
+textarea, input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #34495e;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al enfocar el campo */
+textarea:focus, input:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 10px rgba(22, 160, 133, 0.8);
+}
+
+
+/* Efecto de hover en el botón de enviar */
+button:hover {
+    background: #1abc9c;
+    transform: translateY(-2px); /* Elevación sutil */
+}
+
+/* Estilo para el botón "Volver al menú" */
+.back-button {
+    margin-top: 20px;
+    background: #e74c3c; /* Rojo brillante */
+}
+
+/* Efecto de hover en el botón "Volver al menú" */
+.back-button:hover {
+    background: #c0392b;
+    transform: translateY(-2px); /* Elevación sutil */
+}
+
+/* Estilo para los enlaces */
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ecf0f1;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover en el enlace */
+a:hover {
+    color: #16a085;
+}
+
+/* Login Page Styles */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+}
+
+.login-box {
+    width: 350px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #2980b9;
+}
+
+.login-box a {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #3498db;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+main {
+    width: 80%;
+    margin: 120px auto; /* Ajuste para que no quede oculto detrás del header */
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #4e2a84;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.contact-info div {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info div h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.contact-info div p {
+    font-size: 1.1em;
+}
+
+.contact-info div img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.social-links a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #4e2a84;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #5a3d99;
+}
+
+.social-links img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+textarea {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 600px; /* Tamaño máximo */
+    min-height: 150px; /* Altura mínima */
+    padding: 10px; /* Espaciado interno */
+    font-family: 'Arial', sans-serif; /* Fuente limpia */
+    font-size: 16px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    border: 2px solid #ccc; /* Borde inicial */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Animación suave */
+    resize: vertical; /* Permite cambiar tamaño verticalmente */
+}
+
+textarea:focus {
+    outline: none; /* Elimina el contorno por defecto */
+    border-color: #007BFF; /* Borde azul en foco */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Sombra azul en foco */
+}
+
+textarea::placeholder {
+    color: #aaa; /* Color del texto de marcador */
+    font-style: italic; /* Estilo cursiva para el placeholder */
+}
+
+

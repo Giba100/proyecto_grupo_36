@@ -1,0 +1,319 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/imagenes/admin2.jpg'); /* Fondo de imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    color: #2a76e7;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro y semi-transparente */
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Esto hace que los enlaces se alineen horizontalmente */
+    gap: 20px; /* Espaciado entre los enlaces */
+}
+
+nav ul li {
+    display: inline;
+}
+
+
+
+nav ul li a:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+h1, h2, h3 {
+    text-align: center;
+    color: #f5efef;
+}
+h1, h3 {
+    text-align: center;
+    color: #151212;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo base para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: linear-gradient(135deg, #2c3e50, #34495e);  /* Degradado oscuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+/* Estilo para las celdas */
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    color: #ecf0f1;  /* Color claro para el texto */
+    font-size: 16px;
+}
+
+/* Estilo para las cabeceras */
+th {
+    background: #16a085;  /* Color brillante para las cabeceras */
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Estilo para las filas */
+tr {
+    background: #34495e;
+    transition: background 0.3s ease;
+}
+
+/* Efecto de hover para las filas */
+tr:hover {
+    background: linear-gradient(135deg, #1abc9c, #16a085);  /* Degradado brillante */
+    transform: scale(1.02);  /* Efecto de ampliación */
+}
+
+/* Efecto para las celdas cuando la fila es seleccionada */
+tr:active {
+    background: #1abc9c;
+}
+
+/* Bordes de las celdas */
+td, th {
+    border: 1px solid #16a085;  /* Bordes de color brillante */
+    border-radius: 6px;
+}
+
+/* Efecto de focus en las celdas */
+th:focus, td:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(22, 160, 133, 0.8);  /* Brillo alrededor de las celdas */
+}
+
+/* Estilo para la tabla cuando no hay contenido */
+table:empty {
+    display: none;
+}
+
+
+/* Buttons */
+/* Estilo base para el botón */
+button {
+    background: linear-gradient(45deg, #ff6b81, #ffcc00);  /* Gradiente brillante */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: all 0.3s ease;  /* Transición suave para efectos */
+}
+
+/* Efecto cuando el botón está en hover */
+button:hover {
+    background: linear-gradient(45deg, #ffcc00, #ff6b81);  /* Inversión del gradiente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+    transform: translateY(-3px);  /* Eleva el botón cuando se pasa el mouse */
+}
+
+/* Efecto de focus para accesibilidad */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);  /* Brillo alrededor del botón */
+}
+
+/* Efecto cuando el botón está deshabilitado */
+button:disabled {
+    background: #d1d1d1;  /* Fondo gris cuando está deshabilitado */
+    cursor: not-allowed;
+    box-shadow: none;
+}
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Form Styles */
+/* Estilo general del contenedor */
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Fondo degradado oscuro */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0e0f0f;
+}
+
+/* Estilo del formulario */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Campos de entrada */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #34495e;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al enfocar en los campos */
+.form-control:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 10px rgba(22, 160, 133, 0.8);
+}
+
+/* Botón de envío */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #16a085; /* Verde oscuro */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover en botón de envío */
+.btn-submit:hover {
+    background: #1abc9c;
+    transform: translateY(-2px);
+}
+
+/* Botón de cancelar */
+.btn-cancel {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px;
+    background: #e74c3c; /* Rojo oscuro */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover en botón de cancelar */
+.btn-cancel:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+/* Login Page Styles */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+}
+
+.login-box {
+    width: 350px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #2980b9;
+}
+
+.login-box a {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #3498db;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

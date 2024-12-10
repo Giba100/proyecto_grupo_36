@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Fecha de Entrega</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tecnico.css') }}">
 </head>
 <body>
-    <h1>Actualizar Fecha de Entrega</h1>
+    <div class="form-container">
+        <h1>Actualizar Fecha de Entrega</h1>
 
-    <form action="{{ url_for('actualizar_fecha_entrega_tecnico', id_orden=id_orden) }}" method="POST">
-        <label for="f_entrega">Fecha de Entrega:</label>
-        <input type="date" name="f_entrega" required>
-        <br><br>
-        <button type="submit">Actualizar</button>
-    </form>
+        <form action="{{ url_for('actualizar_fecha_entrega_tecnico', id_orden=id_orden) }}" method="POST">
+            <div class="form-group">
+                <label for="f_entrega">Fecha de Entrega:</label>
+                <input type="date" name="f_entrega" id="f_entrega" class="form-control" required>
+            </div>
 
-    <br>
-    <a href="{{ url_for('ordenes_asignadas') }}">Volver a Órdenes Asignadas</a>
+            <button type="submit" class="btn btn-submit">Actualizar</button>
+            <a href="{{ url_for('ordenes_asignadas') }}" class="btn btn-cancel">Volver a Órdenes Asignadas</a>
+        </form>
+    </div>
 </body>
 </html>
